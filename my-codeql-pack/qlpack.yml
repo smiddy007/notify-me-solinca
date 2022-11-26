@@ -1,1 +1,2 @@
 name: smiddy007/my-codeql-queries
+extractor: javascript
