@@ -14,4 +14,4 @@ import javascript
 private import semmle.javascript.security.SensitiveActions
 
 from SensitiveExpr a, SensitiveNode b, SensitiveWrite c, SensitiveFunctionName d, SensitiveAction e, ProtectCall f
-select any
+select a, b, c, d, e, f
