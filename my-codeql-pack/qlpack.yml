@@ -1,4 +1,4 @@
 name: smiddy007/my-codeql-queries
 extractor: javascript
 dependencies:
-  codeql/javascript-all: ${workspace}
+  codeql/javascript-all: "*"
