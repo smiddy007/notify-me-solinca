@@ -3,4 +3,4 @@ name: "My Codeql config"
 disable-default-queries: true
 
 packs:
-  - smiddy007/my-codeql-pack
+  - ./my-codeql-pack
