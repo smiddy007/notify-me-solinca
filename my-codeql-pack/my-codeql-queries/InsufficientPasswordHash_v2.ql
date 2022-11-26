@@ -1,25 +1,20 @@
 /**
- * @name Inefficient regular expression
- * @description A regular expression that requires exponential time to match certain inputs
- *              can be a performance bottleneck, and may be vulnerable to denial-of-service
- *              attacks.
- * @kind problem
- * @problem.severity error
- * @security-severity 7.5
+ * @name Use of password hash with insufficient computational effort
+ * @description Creating a hash of a password with low computational effort makes the hash vulnerable to password cracking attacks.
+ * @kind path-problem
+ * @problem.severity warning
+ * @security-severity 8.1
  * @precision high
- * @id js/redos
+ * @id js/insufficient-password-hash
  * @tags security
- *       external/cwe/cwe-1333
- *       external/cwe/cwe-730
- *       external/cwe/cwe-400
+ *       external/cwe/cwe-916
  */
 
 import javascript
-import semmle.javascript.security.regexp.NfaUtils
-import semmle.javascript.security.regexp.ExponentialBackTracking
+import semmle.javascript.security.dataflow.InsufficientPasswordHashQuery
+import DataFlow::PathGraph
 
-from RegExpTerm t, string pump, State s, string prefixMsg
-where hasReDoSResult(t, pump, s, prefixMsg)
-select t,
-  "This part of the regular expression may cause exponential backtracking on strings " + prefixMsg +
-    "containing many repetitions of '" + pump + "'."
+from Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink.getNode(), source, sink, "Password from $@ is hashed insecurely.", source.getNode(),
+  source.getNode().(Source).describe()
