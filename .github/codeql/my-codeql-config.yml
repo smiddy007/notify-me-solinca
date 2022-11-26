@@ -6,4 +6,4 @@ disable-default-queries: true
 #  - smiddy007/my-codeql-pack
 
 queries:
-  - uses: ./my-codeql-pack/my-codeql-queries/InsufficientPasswordHash_v2.ql
+  - uses: ./my-codeql-pack/InsufficientPasswordHash_v2.ql
