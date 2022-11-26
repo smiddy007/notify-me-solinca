@@ -9,7 +9,14 @@
  * @tags security
  *       external/cwe/cwe-916
  */
+  
+import javascript
+private import semmle.javascript.security.SensitiveActions
 
+from SensitiveExpr a, SensitiveNode b, SensitiveWrite c, SensitiveFunctionName d, SensitiveAction e, ProtectCall f
+select *
+
+/**
 import javascript
 import semmle.javascript.security.dataflow.InsufficientPasswordHashQuery
 import DataFlow::PathGraph
@@ -18,3 +25,4 @@ from Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
 where cfg.hasFlowPath(source, sink)
 select sink.getNode(), source, sink, "Password from $@ is hashed insecurely.", source.getNode(),
   source.getNode().(Source).describe()
+*/
