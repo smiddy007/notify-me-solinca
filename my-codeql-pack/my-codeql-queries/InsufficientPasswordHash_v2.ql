@@ -11,7 +11,7 @@
  */
   
 import javascript
-import InsufficientPasswordHashCustomizations
+private import semmle.javascript.security.dataflow.InsufficientPasswordHashCustomizations::InsufficientPasswordHash
 
 from CleartextPasswordSource cps
 select cps, cps.describe()
