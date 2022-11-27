@@ -15,4 +15,4 @@ private import semmle.javascript.security.SensitiveActions
 
 from SensitiveNode b
 where not b.describe() = ""
-select b
+select b, b.describe()
