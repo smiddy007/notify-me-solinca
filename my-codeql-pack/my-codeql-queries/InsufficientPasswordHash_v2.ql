@@ -13,5 +13,6 @@
 import javascript
 private import semmle.javascript.security.SensitiveActions
 
-from SensitiveExpr a, SensitiveNode b, SensitiveWrite c, SensitiveFunctionName d, SensitiveAction e, ProtectCall f
-select a, b, c, d, e, f
+from SensitiveNode b
+where not b.describe() = ""
+select b
