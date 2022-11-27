@@ -11,8 +11,7 @@
  */
   
 import javascript
-private import semmle.javascript.security.SensitiveActions
+import InsufficientPasswordHashCustomizations::InsufficientPasswordHash
 
-from SensitiveNode b
-where not b.describe() = ""
-select b, "scoobydoo"
+from CleartextPasswordSource cps
+select cps, cps.describe()
