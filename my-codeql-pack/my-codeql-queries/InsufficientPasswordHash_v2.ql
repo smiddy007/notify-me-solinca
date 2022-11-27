@@ -11,7 +11,7 @@
  */
   
 import javascript
-import InsufficientPasswordHashCustomizations::InsufficientPasswordHash
+import InsufficientPasswordHashCustomizations
 
 from CleartextPasswordSource cps
 select cps, cps.describe()
