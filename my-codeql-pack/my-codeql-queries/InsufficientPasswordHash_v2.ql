@@ -16,4 +16,4 @@ private import semmle.javascript.security.SensitiveActions
 
 
 from InsufficientPasswordHashAlgorithm ipha 
-select ipha, ipha.describe()
+select ipha, ipha.getStringValue()
