@@ -15,5 +15,5 @@ private import semmle.javascript.security.dataflow.InsufficientPasswordHashCusto
 private import semmle.javascript.security.SensitiveActions
 
 
-from InsufficientPasswordHashAlgorithm ipha 
-select ipha, ipha.getStringValue()
+from CleartextPasswordSource cps
+select cps, cps.describe()
