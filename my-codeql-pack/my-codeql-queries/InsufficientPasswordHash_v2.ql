@@ -14,8 +14,6 @@ import javascript
 private import semmle.javascript.security.dataflow.InsufficientPasswordHashCustomizations::InsufficientPasswordHash
 private import semmle.javascript.security.SensitiveActions
 
-#from CleartextPasswordSource cps
-from InsufficientPasswordHashAlgorithm ipha 
 
-#select cps, cps.describe()
+from InsufficientPasswordHashAlgorithm ipha 
 select ipha, ipha.describe()
