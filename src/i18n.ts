@@ -12,3 +12,4 @@ i18n.locale = Localisation.locale
 i18n.fallbacks = true
 
 export default i18n
+
