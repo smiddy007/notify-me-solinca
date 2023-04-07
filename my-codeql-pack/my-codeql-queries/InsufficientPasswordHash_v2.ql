@@ -1,7 +1,7 @@
 /**
  * @name Use of password hash with insufficient computational effort
  * @description Creating a hash of a password with low computational effort makes the hash vulnerable to password cracking attacks.
- * @kind problem
+ * @kind path-problem
  * @problem.severity warning
  * @security-severity 8.1
  * @precision high
@@ -9,11 +9,12 @@
  * @tags security
  *       external/cwe/cwe-916
  */
-  
+
 import javascript
-private import semmle.javascript.security.dataflow.InsufficientPasswordHashCustomizations::InsufficientPasswordHash
-private import semmle.javascript.security.SensitiveActions
+import semmle.javascript.security.dataflow.InsufficientPasswordHashQuery
+import DataFlow::PathGraph
 
-
-from CleartextPasswordSource cps
-select cps, cps.describe()
+from Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink.getNode(), source, sink, "Password from $@ is hashed insecurely.", source.getNode(),
+  source.getNode().(Source).describe()
