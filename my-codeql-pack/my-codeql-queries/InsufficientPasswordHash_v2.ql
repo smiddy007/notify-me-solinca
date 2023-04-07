@@ -175,6 +175,6 @@ private class Apply extends CryptographicOperation::Range instanceof API::CallNo
   }
 }
 
-from Configuration cfg, DataFlow::PathNode source, DataFlow::PathNode sink, Apply apply
-select source, apply, "Password from $@ is hashed insecurely.", source.getNode(),
-  source.getNode().(Source).describe()
+from Configuration cfg, DataFlow::PathNode source, Apply apply
+where cfg.isSource(source.getNode())
+select source, source.getNode(), source.getNode().(Source).describe(), apply
